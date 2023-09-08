@@ -1,0 +1,30 @@
+databaseChangeLog:
+  - changeSet:
+      id: 2023-09-08-create-table-pet
+      author: v.sinitski
+      changes:
+        - createTable:
+            tableName: pet
+            columns:
+              - column:
+                  name: id
+                  type: BIGINT
+                  constraints:
+                    primaryKey: true
+              - column:
+                  name: name
+                  type: VARCHAR(255)
+              - column:
+                  name: owner_id
+                  type: BIGINT
+                  constraints:
+                    foreignKeyName: fk_pet_owner
+                    referencedTableName: owner
+                    referencedColumnNames: id
+              - column:
+                  name: breed_id
+                  type: BIGINT
+                  constraints:
+                    foreignKeyName: fk_pet_breed
+                    referencedTableName: breed
+                    referencedColumnNames: id

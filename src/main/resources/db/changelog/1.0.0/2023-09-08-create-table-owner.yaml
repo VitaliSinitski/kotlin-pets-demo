@@ -1,0 +1,16 @@
+databaseChangeLog:
+  - changeSet:
+      id: 2023-09-08-create-table-owner
+      author: v.sinitski
+      changes:
+        - createTable:
+            tableName: owner
+            columns:
+              - column:
+                  name: id
+                  type: BIGINT
+                  constraints:
+                    primaryKey: true
+              - column:
+                  name: name
+                  type: VARCHAR(255)
